@@ -1,4 +1,3 @@
-
 variable "region" {
   description = "The AWS region to create resources in"
   default     = "us-east-1"
@@ -37,4 +36,28 @@ variable "container_name" {
   default     = "SlackBot"
 }
 
+variable "image" {
+  description = "The image to use for the container"
+  type        = string
+  default     = "nginx:latest"
+}
 
+variable "log_group_name" {
+  description = "The name of the CloudWatch log group"
+  default     = "/ecs/my-app"
+}
+
+variable "retention_in_days" {
+  description = "The retention in days for CloudWatch logs"
+  default     = 7
+}
+
+variable "lb_name" {
+  description = "The name of the load balancer"
+  default     = "Slackbot-ecs-lb"
+}
+
+variable "target_group_name" {
+  description = "The name of the load balancer target group"
+  default     = "Slackbot-ecs-targetgroup"
+}
